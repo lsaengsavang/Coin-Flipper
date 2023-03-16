@@ -42,7 +42,18 @@ document.addEventListener('DOMContentLoaded', function () {
         percentageTailsCell.textContent = `${percentageOfTails}`
     })
     clearButton.addEventListener('click', function(e){
+        total = 0;
+        numberOfHeads = 0;
+        numberOfTails = 0;
+        percentageOfHeads = 0;
+        percentageOfTails = 0;
 
+        numberHeadsCell.textContent = `${numberOfHeads}`;
+        numberTailsCell.textContent = `${numberOfTails}`;
+        percentageHeadsCell.textContent = `${percentageOfHeads}%`
+        percentageTailsCell.textContent = `${percentageOfTails}%`
+        statusMessage.textContent = "Let's Get Rolling!";
+        pennyImage.src = 'assets/images/penny-heads.jpg';
     })
 
     
