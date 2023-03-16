@@ -4,9 +4,49 @@
 document.addEventListener('DOMContentLoaded', function () {
     // This is just a sanity check to make sure your JavaScript script is getting loaded
     // You can remove it once you see it in your browser console in the developer tools
-    console.log('Hi')
+    let total = 0;
+    let numberOfHeads = 0;
+    let numberOfTails = 0;
+    let percentageOfHeads = 0;
+    let percentageOfTails = 0;
+
 
     // TODO: Add event listener and handler for flip and clear buttons
+    const flipButton = document.querySelector('#flip');
+    const clearButton = document.querySelector('#clear');
+    const statusMessage = document.querySelector('#statusMessage');
+    const pennyImage = document.querySelector('img');
+    const numberHeadsCell = document.querySelector('#heads');
+    const numberTailsCell = document.querySelector('#tails');
+    const percentageHeadsCell = document.querySelector('#heads-percent');
+    const percentageTailsCell = document.querySelector('#tails-percent');
+
+    flipButton.addEventListener('click', function(e){
+        total += 1;
+        const result = Math.round(Math.random () * 100);
+
+        if (result > 50) {
+            numberOfHeads += 1;
+            statusMessage.textContent = 'You flipped Heads!';
+            pennyImage.src = 'assets/images/penny-heads.jpg';
+        } else {
+            numberOfTails += 1;
+            statusMessage.textContent = 'You flipped Tails!';
+            pennyImage.src = 'assets/images/penny-tails.jpg';
+        }
+        percentageOfHeads = Math.round(numberOfHeads / total * 100);
+        percentageOfTails = Math.round(numberOfTails / total * 100);
+        numberHeadsCell.textContent = `${numberOfHeads}`;
+        numberTailsCell.textContent = `${numberOfTails}`;
+        percentageHeadsCell.textContent = `${percentageOfHeads}`
+        percentageTailsCell.textContent = `${percentageOfTails}`
+    })
+    clearButton.addEventListener('click', function(e){
+
+    })
+
+    
+
 
     // Flip Button Click Handler
         // TODO: Determine flip outcome
